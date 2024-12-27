@@ -30,5 +30,37 @@ getHumanChoice = () => {
 }
 
 playRound = (hChoice, cChoice) => {
-    
+    if(hChoice == 'rock' && cChoice == 'paper' || hChoice == 'paper' && cChoice == 'scissors' || hChoice == 'scissors' && cChoice == 'rock'){
+        console.log('You lose this round!')
+        ComputerScore += 1;
+    }
+    else if(cChoice == 'rock' && hChoice == 'paper' || cChoice == 'paper' && hChoice == 'scissors' || cChoice == 'scissors' && hChoice == 'rock'){
+        console.log('You win this round!')
+        HumanScore += 1;
+    }
+    else if(hChoice == cChoice){
+        console.log('Its a draw!');
+    }
 }
+
+playGame = () => {
+    humanChoice = getHumanChoice();
+    computerChoice = getRandomChoice();
+
+    for(i = 0; i < 5; i++){
+        playRound(humanScore, computerChoice);
+    }
+
+    if(humanScore > ComputerScore){
+        console.log('You win!')
+    }
+    else if(humanScore > ComputerScore){
+        console.log('You lose!')
+    }
+    else{
+        console.log('Its a draw!')
+    }
+}
+
+
+playGame()
