@@ -1,6 +1,7 @@
 let choices = ['rock', 'paper', 'scissors'];
 let humanScore = 0;
 let ComputerScore = 0;
+const btns = document.querySelectorAll('button');
 
 
 
@@ -19,16 +20,6 @@ getRandomChoice = choices => {
     }
 }
 
-getHumanChoice = () => {
-    while (true) {
-        let humanChoice = prompt('What is your choice? (Rock, Paper, Scissors)');
-        humanChoice = humanChoice.trim().toLowerCase();
-        if(humanChoice == 'rock' || humanChoice == 'paper' || humanChoice == 'scissors'){
-            return humanChoice;
-        }
-    }
-}
-
 playRound = (hChoice, cChoice) => {
     if(hChoice == 'rock' && cChoice == 'paper' || hChoice == 'paper' && cChoice == 'scissors' || hChoice == 'scissors' && cChoice == 'rock'){
         console.log('You lose this round!')
@@ -36,7 +27,7 @@ playRound = (hChoice, cChoice) => {
     }
     else if(cChoice == 'rock' && hChoice == 'paper' || cChoice == 'paper' && hChoice == 'scissors' || cChoice == 'scissors' && hChoice == 'rock'){
         console.log('You win this round!')
-        HumanScore += 1;
+        humanScore += 1;
     }
     else if(hChoice == cChoice){
         console.log('Its a draw!');
@@ -44,12 +35,10 @@ playRound = (hChoice, cChoice) => {
 }
 
 playGame = () => {
-    humanChoice = getHumanChoice();
-    computerChoice = getRandomChoice();
 
-    for(i = 0; i < 5; i++){
-        playRound(humanScore, computerChoice);
-    }
+    let humanChoice = getHumanChoice();
+    let computerChoice = getRandomChoice(choices);
+    playRound(humanChoice, computerChoice);
 
     if(humanScore > ComputerScore){
         console.log('You win!')
@@ -62,5 +51,8 @@ playGame = () => {
     }
 }
 
-
-playGame()
+btns.forEach(btn => {
+    btn.addEventListener('click', e => {
+        playRound(e.target.innerText.toLowerCase(), getRandomChoice(choices));
+    });
+});
