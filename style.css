@@ -1,0 +1,54 @@
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d8b6c4;
+    color: #c01c60;
+}
+
+.scores{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 50%;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h2{
+    margin: 0;
+}
+
+h3{
+    margin: 0;
+    font-size: 3rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+button{
+    background-color: #c01c60;
+    color: #d8b6c4;
+    font-size: 2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: #d2a2b6 4px 4px 4px;
+}
+
+.results p{
+    font-size: 1.5rem;
+
+}
+
+.results .winner{
+    font-size: 2.3rem;
+}
